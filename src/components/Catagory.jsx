@@ -17,6 +17,7 @@ const Catagory = () => {
     let userMenu = useRef()
     let chartMenu = useRef()
     let catMenu = useRef()
+
     useEffect(() => {
         document.addEventListener("click", (e) => {
             if (catMenu.current.contains(e.target) == true) {
@@ -25,7 +26,8 @@ const Catagory = () => {
                 setCatshow(false)
             }
         })
-    }, [catshow, chartMenu])
+    }, [catshow])
+
     useEffect(() => {
         document.addEventListener("click", (e) => {
             if (chartMenu.current.contains(e.target) == true) {
@@ -80,45 +82,45 @@ const Catagory = () => {
                                                 <div className="  w-[100px] ">
                                                     <ul>
                                                         <li><h6 className='text-[14px] text-[#262626] font-dm font-bold pb-[21px]'>Phones</h6></li>
-                                                        <li><a href="#" className='text-[14px] text-[#262626] font-dm font-normal'>Phone 1</a></li>
-                                                        <li className='py-[10px]'><a href="#" className='text-[14px] text-[#262626] font-dm font-normal'>Phone 2</a></li>
-                                                        <li><a href="#" className='text-[14px] text-[#262626] font-dm font-normal'>Phone 3</a></li>
-                                                        <li className='py-[10px]'><a href="#" className='text-[14px] text-[#262626] font-dm font-normal'>Phone 4</a></li>
-                                                        <li><a href="#" className='text-[14px] text-[#262626] font-dm font-normal'>Phone 5</a></li>
-                                                        <li className='py-[10px]'><a href="#" className='text-[14px] text-[#262626] font-dm font-normal'>Phone 6</a></li>
+                                                        <li><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Phone 1</a></li>
+                                                        <li className='py-[10px]'><a href="#" className='text-[14px] text-[#262626] font-dm font-normal  hover:font-bold duration-200'>Phone 2</a></li>
+                                                        <li><a href="#" className='text-[14px] text-[#262626] font-dm hover:font-bold duration-200 font-normal'>Phone 3</a></li>
+                                                        <li className='py-[10px]'><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Phone 4</a></li>
+                                                        <li><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Phone 5</a></li>
+                                                        <li className='py-[10px]'><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Phone 6</a></li>
                                                     </ul>
                                                 </div>
                                                 <div className=" w-[100px]">
                                                     <ul>
                                                         <li><h6 className='text-[14px] text-[#262626] font-dm font-bold pb-[21px]'>Computers</h6></li>
-                                                        <li><a href="#" className='text-[14px] text-[#262626] font-dm font-normal'>Computer 1</a></li>
-                                                        <li className='py-[10px]'><a href="#" className='text-[14px] text-[#262626] font-dm font-normal'>Computer 2</a></li>
-                                                        <li><a href="#" className='text-[14px] text-[#262626] font-dm font-normal'>Computer 3</a></li>
-                                                        <li className='py-[10px]'><a href="#" className='text-[14px] text-[#262626] font-dm font-normal'>Computer 4</a></li>
-                                                        <li><a href="#" className='text-[14px] text-[#262626] font-dm font-normal'>Computer 5</a></li>
-                                                        <li className='py-[10px]'><a href="#" className='text-[14px] text-[#262626] font-dm font-normal'>Computer 6</a></li>
+                                                        <li><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Computer 1</a></li>
+                                                        <li className='py-[10px]'><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Computer 2</a></li>
+                                                        <li><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Computer 3</a></li>
+                                                        <li className='py-[10px]'><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Computer 4</a></li>
+                                                        <li><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Computer 5</a></li>
+                                                        <li className='py-[10px]'><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Computer 6</a></li>
                                                     </ul>
                                                 </div>
                                                 <div className=" w-[140px]">
                                                     <ul>
                                                         <li><h6 className='text-[14px] text-[#262626] font-dm font-bold pb-[21px]'>Smart watches</h6></li>
-                                                        <li><a href="#" className='text-[14px] text-[#262626] font-dm font-normal'>Smart watches 1</a></li>
-                                                        <li className='py-[10px]'><a href="#" className='text-[14px] text-[#262626] font-dm font-normal'>Smart watches 2</a></li>
-                                                        <li><a href="#" className='text-[14px] text-[#262626] font-dm font-normal'>Smart watches 3</a></li>
+                                                        <li><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Smart watches 1</a></li>
+                                                        <li className='py-[10px]'><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Smart watches 2</a></li>
+                                                        <li><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Smart watches 3</a></li>
                                                         <li className='py-[10px]'><a href="#" className='text-[14px] text-[#262626] font-dm font-normal'>Smart watches 4</a></li>
-                                                        <li><a href="#" className='text-[14px] text-[#262626] font-dm font-normal'>Smart watches 5</a></li>
-                                                        <li className='py-[10px]'><a href="#" className='text-[14px] text-[#262626] font-dm font-normal'>Smart watches 6</a></li>
+                                                        <li><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Smart watches 5</a></li>
+                                                        <li className='py-[10px]'><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Smart watches 6</a></li>
                                                     </ul>
                                                 </div>
                                                 <div className="w-[100px]">
                                                     <ul>
                                                         <li><h6 className='text-[14px] text-[#262626] font-dm font-bold pb-[21px]'>Cameras</h6></li>
-                                                        <li><a href="#" className='text-[14px] text-[#262626] font-dm font-normal'>Camera 1</a></li>
-                                                        <li className='py-[10px]'><a href="#" className='text-[14px] text-[#262626] font-dm font-normal'>Camera 2</a></li>
-                                                        <li><a href="#" className='text-[14px] text-[#262626] font-dm font-normal'>Camera 3</a></li>
-                                                        <li className='py-[10px]'><a href="#" className='text-[14px] text-[#262626] font-dm font-normal'>Camera 4</a></li>
-                                                        <li><a href="#" className='text-[14px] text-[#262626] font-dm font-normal'>Camera 5</a></li>
-                                                        <li className='py-[10px]'><a href="#" className='text-[14px] text-[#262626] font-dm font-normal'>Camera 6</a></li>
+                                                        <li><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Camera 1</a></li>
+                                                        <li className='py-[10px]'><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Camera 2</a></li>
+                                                        <li><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Camera 3</a></li>
+                                                        <li className='py-[10px]'><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Camera 4</a></li>
+                                                        <li><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Camera 5</a></li>
+                                                        <li className='py-[10px]'><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Camera 6</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
