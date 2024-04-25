@@ -25,37 +25,28 @@ const Catagory = () => {
             } else {
                 setCatshow(false)
             }
-        })
-    }, [catshow])
 
-    useEffect(() => {
-        document.addEventListener("click", (e) => {
             if (chartMenu.current.contains(e.target) == true) {
-                setCartshow(true)
+                setCartshow(!cartshow)
             } else {
                 setCartshow(false)
             }
-        })
-    }, [chartMenu])
 
-    useEffect(() => {
-        document.addEventListener("click", (e) => {
             if (userMenu.current.contains(e.target) == true) {
-                setUsertshow(true)
+                setUsertshow(!usershow)
             } else {
                 setUsertshow(false)
             }
-        })
-    }, [chartMenu])
-    useEffect(() => {
-        document.addEventListener("click", (e) => {
+
             if (itemMenu.current.contains(e.target) == true) {
-                setItemshow(true)
+                setItemshow(!itemshow)
             } else {
                 setItemshow(false)
             }
+
+
         })
-    }, [chartMenu])
+    }, [catshow,cartshow,usershow,itemshow])
 
 
 
@@ -63,22 +54,23 @@ const Catagory = () => {
 
         <div className='bg-[#F5F5F3]'>
             <Container className={`px-[10px]`}>
-                <div className=" lg:flex justify-between py-[25px] bg-[#F5F5F3] items-center lg:text-start text-center">
+                <div className=" flex justify-between py-[25px] bg-[#F5F5F3] items-center lg:text-start text-center">
                     <div className="relative " ref={catMenu}>
-                        <div className="flex lg:pb-0 pb-[10px] cursor-pointer">
+                        <div className="flex lg:pb-0 pb-[10px] lg:w-full w-24 cursor-pointer">
                             <HiMiniBarsArrowDown className='text-[28px] text-[#262626] ' />
-                            <p className='text-[16px] text-[#262626 font-dm pl-[10px]'>Shop by Category</p>
+                            <p className='lg:text-[16px] text-[14px] lg:ml-[0] ml-[-13px] text-[#262626] font-dm lg:pl-[10px]' >Shop by Category</p>
                         </div>
 
                         {catshow &&
-                            <div className=" bg-[#262626] absolute top-[40px] left-0 w-[300px]">
+                            <div className=" bg-[#262626] absolute z-50 lg:top-[40px] top-[48px] left-0 lg:w-[300px] w-[200px] ">
                                 <ul>
-                                    <li className='py-3'><a href="#" className='text-[rgba(255,255,255,0.73)] text-[16px] font-dm font-normal pl-5  hover:text-[#fff] hover:pl-8 duration-700'>Accesories</a></li>
-                                    <li className='py-3'><a href="#" className='text-[rgba(255,255,255,0.73)] text-[16px] font-dm font-normal pl-5  hover:text-[#fff] hover:pl-8 duration-700'>Furniture</a></li>
-                                    <li className='py-3 relative' ref={itemMenu}><a href="#" className='text-[rgba(255,255,255,0.73)] text-[16px] font-dm font-normal pl-5  hover:text-[#fff] hover:pl-8 duration-700'>Electronics</a>
+                                    <li className='py-3'><a href="#" className='text-[rgba(255,255,255,0.73)] text-[16px] font-dm font-normal lg:pl-5 pl-0  hover:text-[#fff] hover:pl-10 duration-700'>Accesories</a></li>
+                                    <li className='py-3'><a href="#" className='text-[rgba(255,255,255,0.73)] text-[16px] font-dm font-normal lg:pl-5 pl-0  hover:text-[#fff] hover:pl-10 duration-700'>Furniture</a></li>
+                                    <li className='py-3 relative' ref={itemMenu}><a href="#" className='text-[rgba(255,255,255,0.73)] text-[16px] font-dm font-normal pl-5  hover:text-[#fff] hover:pl-10 duration-700'>Electronics</a>
 
                                         {itemshow &&
-                                            <div className=" flex absolute top-[-98px] left-[300px] bg-[#FFFFFF] py-[24px] px-[25px]">
+                                            <div className=" lg:flex z-50 absolute lg:top-[-98px] top-[200px] lg:left-[300px] left-[0] bg-[#FFFFFF] py-[24px] lg:px-[25px]">
+                                                <div className="flex">
                                                 <div className="  w-[100px] ">
                                                     <ul>
                                                         <li><h6 className='text-[14px] text-[#262626] font-dm font-bold pb-[21px]'>Phones</h6></li>
@@ -101,6 +93,8 @@ const Catagory = () => {
                                                         <li className='py-[10px]'><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Computer 6</a></li>
                                                     </ul>
                                                 </div>
+                                                </div>
+                                                <div className="flex">
                                                 <div className=" w-[140px]">
                                                     <ul>
                                                         <li><h6 className='text-[14px] text-[#262626] font-dm font-bold pb-[21px]'>Smart watches</h6></li>
@@ -112,7 +106,7 @@ const Catagory = () => {
                                                         <li className='py-[10px]'><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Smart watches 6</a></li>
                                                     </ul>
                                                 </div>
-                                                <div className="w-[100px]">
+                                                <div className=" w-[100px]">
                                                     <ul>
                                                         <li><h6 className='text-[14px] text-[#262626] font-dm font-bold pb-[21px]'>Cameras</h6></li>
                                                         <li><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Camera 1</a></li>
@@ -123,33 +117,34 @@ const Catagory = () => {
                                                         <li className='py-[10px]'><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Camera 6</a></li>
                                                     </ul>
                                                 </div>
+                                                </div>
                                             </div>
                                         }
 
 
                                     </li>
-                                    <li className='py-3'><a href="#" className='text-[rgba(255,255,255,0.73)] text-[16px] font-dm font-normal pl-5  hover:text-[#fff] hover:pl-8 duration-700'>Clothes</a></li>
-                                    <li className='py-3'><a href="#" className='text-[rgba(255,255,255,0.73)] text-[16px] font-dm font-normal pl-5  hover:text-[#fff] hover:pl-8 duration-700'>Bags</a></li>
-                                    <li className='py-3'><a href="#" className='text-[rgba(255,255,255,0.73)] text-[16px] font-dm font-normal pl-5  hover:text-[#fff] hover:pl-8 duration-700'>Home appliances</a></li>
+                                    <li className='py-3'><a href="#" className='text-[rgba(255,255,255,0.73)] text-[16px] font-dm font-normal lg:pl-5 pl-0  hover:text-[#fff] hover:pl-10 duration-700'>Clothes</a></li>
+                                    <li className='py-3'><a href="#" className='text-[rgba(255,255,255,0.73)] text-[16px] font-dm font-normal lg:pl-5 pl-0  hover:text-[#fff] hover:pl-10 duration-700'>Bags</a></li>
+                                    <li className='py-3'><a href="#" className='text-[rgba(255,255,255,0.73)] text-[16px] font-dm font-normal lg:pl-5 pl-0  hover:text-[#fff] hover:pl-10 duration-700'>Home appliances</a></li>
                                 </ul>
                             </div>
                         }
 
 
                     </div>
-                    <div className="relative lg:pb-0 pb-[10px]">
+                    <div className="relative lg:pb-0 pb-[10px] lg:ml-[0] ml-[-40px]">
 
-                        <input type="text" placeholder='Search Products' className='h-[50px] w-full pl-[21px] lg:pr-[473px]' />
-                        <IoIosSearch className='absolute lg:top-[26%] top-[22%] lg:right-[25px] right-[10px] text-[28px] text-[#262626]' />
+                        <input type="text" placeholder='Search Products' className='lg:ml-0 ml-[13px] lg:h-[50px] h-[40px] w-full lg:pl-[21px] pl-[5px] lg:pr-[473px] ' />
+                        <IoIosSearch className='absolute lg:top-[26%] top-[22%] lg:right-[25px] right-[5px] lg:text-[28px] text-[20px] text-[#262626]' />
                     </div>
                     <div >
                         <div className="flex items-center ">
                             <div className="relative" ref={userMenu}>
                                 <a href="#" >
-                                    <FaUser className='text-[24px] text-[#262626]' />
+                                    <FaUser className='lg:text-[24px] text-[#262626]' />
                                 </a>
                                 {usershow &&
-                                    <div className="absolute top-10 right-[0px]">
+                                    <div className="absolute z-50 top-10 right-[0px]">
                                         <div className="text-center">
                                             <ul>
                                                 <li className='text-[#262626] bg-[#FFFFFF]  h-[50px] w-[150px] leading-[50px] hover:bg-[#262626] hover:text-[#fff] duration-500 '>My Account</li>
@@ -161,10 +156,10 @@ const Catagory = () => {
                             </div>
                             <div className="relative" ref={chartMenu}>
                                 <a href="#"  >
-                                    <FaShoppingCart className='text-[24px] text-[#262626] ml-[15px]' />
+                                    <FaShoppingCart className='lg:text-[24px] text-[#262626] ml-[15px]' />
                                 </a>
                                 {cartshow &&
-                                    <div className="absolute top-[40px] right-0 ">
+                                    <div className="absolute z-50 top-[40px] lg:right-0 right-[-15px] ">
                                         <div className="flex bg-[#F5F5F3] py-[20px] px-[20px]">
                                             <div className="flex items-center justify-between w-[350px]">
                                                 <div className="h-[100px] w-[100px] bg-[#979797] mr-[20px]"></div>

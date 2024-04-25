@@ -71,7 +71,7 @@ const Arrival = () => {
 
 
     return (
-        <Container className={`pt-[128px]`}>
+        <Container className={`lg:pt-[128px] pt-[50px] lg:px-0 px-[10px]`}>
             <div className="">
                 <h2 className='text-[39px] text-[#292929] font-dm font-bold'>New Arrivals</h2>
             </div>
@@ -101,7 +101,7 @@ const Arrival = () => {
                     </div>
                 </Slider>
             </div>
-            <div className=" pt-[200px]">
+            <div className=" lg:pt-[200px] pt-[50px]">
                 <Slider {...settings}>
 
                     <div className="w-[24%]    ">
@@ -129,7 +129,7 @@ const Arrival = () => {
             </div>
 
 
-            <div className="pt-[150px]">
+            <div className="lg:pt-[150px] pt-[30px]">
                 <img src={ads} alt="" />
             </div>
 

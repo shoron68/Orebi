@@ -1,5 +1,5 @@
 import Arrival from "./components/Arrival"
-import Banner from "./components/Banner"
+import Bnr from "./components/Bnr"
 import Catagory from "./components/Catagory"
 import Nav from "./components/Nav"
 import Offers from "./components/Offers"
@@ -14,10 +14,11 @@ function App() {
   <>
   <Nav/>
   <Catagory/>
-  {/* <Banner/>
+  <Bnr/>
+  
   <Sale/>
   <Arrival/>
-  <Offers/> */}
+  <Offers/>
 
   </>
   )

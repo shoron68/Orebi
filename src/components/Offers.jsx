@@ -62,8 +62,8 @@ const Offers = () => {
         ]
     };
   return (
-    <Container>
-        <div className="pt-[128px]">
+    <Container className="lg:px-0 px-[10px]">
+        <div className="lg:pt-[128px] pt-[50px] ">
             <h3 className='text-[39px] text-[#292929] font-dm font-bold'>Special Offers</h3>
         </div>
 
