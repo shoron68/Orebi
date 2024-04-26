@@ -1,8 +1,12 @@
 import React from 'react'
+import Pdtfilter from '../Pdtfilter'
 
 const Shop = () => {
   return (
-    <div>Shop</div>
+    <>
+    <Pdtfilter/>
+
+    </>
   )
 }
 
