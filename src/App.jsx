@@ -1,10 +1,16 @@
-import Arrival from "./components/Arrival"
-import Bnr from "./components/Bnr"
-import Catagory from "./components/Catagory"
-import Nav from "./components/Nav"
-import Offers from "./components/Offers"
-import Sale from "./components/Sale"
 
+import Layout from "./components/Layout"
+import Home from "./components/pages/Home"
+import {createBrowserRouter,createRoutesFromElements,RouterProvider,Route}from "react-router-dom"
+import Shop from "./components/pages/Shop"
+
+
+const router=createBrowserRouter(createRoutesFromElements(
+  <Route element={<Layout/>}>
+      <Route path="/" element={<Home/>}> </Route>
+      <Route path="/shop" element={<Shop/>}> </Route>
+  </Route>
+))
 
 
 function App() {
@@ -12,13 +18,7 @@ function App() {
 
   return (
   <>
-  <Nav/>
-  <Catagory/>
-  <Bnr/>
-  
-  <Sale/>
-  <Arrival/>
-  <Offers/>
+  <RouterProvider router={router}></RouterProvider>
 
   </>
   )
