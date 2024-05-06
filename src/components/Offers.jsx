@@ -8,20 +8,22 @@ import product9 from "../assets/Product_9.png"
 import product10 from "../assets/Product_10.png"
 import product11 from "../assets/Product_11.png"
 import product12 from "../assets/Product_12.png"
+import { FaHeart, FaShoppingCart } from "react-icons/fa";
+import { TfiReload } from "react-icons/tfi";
 
 const Offers = () => {
 
     function SampleNextArrow(props) {
-        const { className, style, onClick } = props;
+        const {onClick } = props;
         return (
-            <div data-aos='fade-right' className='absolute top-[37%] h-[50px] w-[50px] bg-[#979797] text-[#FFFFFF] right-[0px] text-[30px] cursor-pointer' onClick={onClick}> <GrLinkNext className='item-center mt-[10px] ml-[5px] '  /> </div>
+            <div data-aos='fade-right' className='absolute top-[37%] h-[50px] w-[50px] bg-[#979797] text-[#FFFFFF] right-[0px] text-[30px] cursor-pointer rounded-full' onClick={onClick}> <GrLinkNext className='item-center mt-[10px] ml-[5px] '  /> </div>
         );
     }
 
     function SamplePrevArrow(props) {
-        const { className, style, onClick } = props;
+        const {onClick } = props;
         return (
-            <div data-aos='fade-left' className='absolute top-[37%] h-[50px] w-[50px] bg-[#979797] text-[#FFFFFF] left-[0] z-10 text-[30px] cursor-pointer' onClick={onClick}> <GrLinkPrevious className='item-center mt-[10px] ml-[5px] ' /> </div>
+            <div data-aos='fade-left' className='absolute top-[37%] h-[50px] w-[50px] bg-[#979797] text-[#FFFFFF] left-[0] z-10 text-[30px] cursor-pointer  rounded-full' onClick={onClick}> <GrLinkPrevious className='item-center mt-[10px] ml-[5px] ' /> </div>
         );
     }
 
@@ -55,7 +57,7 @@ const Offers = () => {
             {
                 breakpoint: 480,
                 settings: {
-                    slidesToShow: 1,
+                    slidesToShow: 2 ,
                     slidesToScroll: 1
                 }
             }
@@ -70,27 +72,154 @@ const Offers = () => {
         <div className=" pt-[48px]">
                 <Slider {...settings}>
 
-                    <div className="w-[24%]    ">
-                        <a href="#" target='blank'>
-                            <img src={product9} className='lg:w-[90%] w-full h-full ' alt="" />
-                        </a>
-                    </div>
-                    <div className="w-[24%]  ">
-                        <a href="#" target='blank'>
-                            <img src={product10} className='lg:w-[90%] w-full  ' alt="" />
-                        </a>
+                <div className="!w-[90%] ">
+                            <div className="">
+                                <div className="relative group overflow-hidden">
+                                    <img src={product9} className='w-full lg:h-[270px]' alt="" />
 
-                    </div>
-                    <div className="w-[24%]">
-                        <a href="#" target='blank'>
-                            <img src={product11} className='lg:w-[90%] w-full   ' alt="" />
-                        </a>
-                    </div>
-                    <div className="w-[24%]">
-                        <a href="#" target='blank'>
-                            <img src={product12} className='lg:w-[90%] w-full   ' alt="" />
-                        </a>
-                    </div>
+                                    <div className=" absolute left-0 bottom-[-150px]  w-full bg-[#fff] h-[150px] duration-500 ease-in-out flex items-center justify-end group-hover:bottom-0" >
+                                        <div className="">
+                                            <div className="flex items-center justify-end mr-2 py-2">
+                                                <h3 className='mr-2 text-[16px] text-[#767676] font-normal font-dm hover:text-[#262626] hover:font-bold duration-500 ease-in-out'>Add to Wish List</h3>
+                                                <FaHeart />
+                                            </div>
+                                            <div className="flex items-center justify-end mr-2 py-2 ">
+                                                <h3 className='mr-[10px] text-[16px] text-[#767676] font-normal font-dm hover:text-[#262626] hover:font-bold duration-500 ease-in-out'>Compare</h3>
+                                                <TfiReload />
+                                            </div>
+                                            <div className="flex items-center justify-end mr-2 py-2">
+                                                <h3 className='mr-[10px] text-[16px] text-[#767676] font-normal font-dm hover:text-[#262626] hover:font-bold duration-500 ease-in-out'>Add to Cart</h3>
+                                                <FaShoppingCart />
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+                            <div className="flex justify-between items-center  py-5">
+                                <div className="">
+                                    <p className='text-[16px] text-[#262626] font-dm font-bold'>Basic Crew Neck Tee</p>
+                                </div>
+                                <div className="">
+                                    <h3 className='text-[16px] text-[#262626] font-dm font-bold'>$44.00</h3>
+                                </div>
+                            </div>
+                        </div>
+                <div className="!w-[90%] ">
+                            <div className="">
+                                <div className="relative group overflow-hidden">
+                                    <img src={product10} className='w-full lg:h-[270px]' alt="" />
+
+                                    <div className=" absolute left-0 bottom-[-150px]  w-full bg-[#fff] h-[150px] duration-500 ease-in-out flex items-center justify-end group-hover:bottom-0" >
+                                        <div className="">
+                                            <div className="flex items-center justify-end mr-2 py-2">
+                                                <h3 className='mr-2 text-[16px] text-[#767676] font-normal font-dm hover:text-[#262626] hover:font-bold duration-500 ease-in-out'>Add to Wish List</h3>
+                                                <FaHeart />
+                                            </div>
+                                            <div className="flex items-center justify-end mr-2 py-2 ">
+                                                <h3 className='mr-[10px] text-[16px] text-[#767676] font-normal font-dm hover:text-[#262626] hover:font-bold duration-500 ease-in-out'>Compare</h3>
+                                                <TfiReload />
+                                            </div>
+                                            <div className="flex items-center justify-end mr-2 py-2">
+                                                <h3 className='mr-[10px] text-[16px] text-[#767676] font-normal font-dm hover:text-[#262626] hover:font-bold duration-500 ease-in-out'>Add to Cart</h3>
+                                                <FaShoppingCart />
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+                            <div className="flex justify-between items-center  py-5">
+                                <div className="">
+                                    <p className='text-[16px] text-[#262626] font-dm font-bold'>Basic Crew Neck Tee</p>
+                                </div>
+                                <div className="">
+                                    <h3 className='text-[16px] text-[#262626] font-dm font-bold'>$44.00</h3>
+                                </div>
+                            </div>
+                        </div>
+                <div className="!w-[90%] ">
+                            <div className="">
+                                <div className="relative group overflow-hidden">
+                                    <img src={product11} className='w-full lg:h-[270px]' alt="" />
+
+                                    <div className=" absolute left-0 bottom-[-150px]  w-full bg-[#fff] h-[150px] duration-500 ease-in-out flex items-center justify-end group-hover:bottom-0" >
+                                        <div className="">
+                                            <div className="flex items-center justify-end mr-2 py-2">
+                                                <h3 className='mr-2 text-[16px] text-[#767676] font-normal font-dm hover:text-[#262626] hover:font-bold duration-500 ease-in-out'>Add to Wish List</h3>
+                                                <FaHeart />
+                                            </div>
+                                            <div className="flex items-center justify-end mr-2 py-2 ">
+                                                <h3 className='mr-[10px] text-[16px] text-[#767676] font-normal font-dm hover:text-[#262626] hover:font-bold duration-500 ease-in-out'>Compare</h3>
+                                                <TfiReload />
+                                            </div>
+                                            <div className="flex items-center justify-end mr-2 py-2">
+                                                <h3 className='mr-[10px] text-[16px] text-[#767676] font-normal font-dm hover:text-[#262626] hover:font-bold duration-500 ease-in-out'>Add to Cart</h3>
+                                                <FaShoppingCart />
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+                            <div className="flex justify-between items-center  py-5">
+                                <div className="">
+                                    <p className='text-[16px] text-[#262626] font-dm font-bold'>Basic Crew Neck Tee</p>
+                                </div>
+                                <div className="">
+                                    <h3 className='text-[16px] text-[#262626] font-dm font-bold'>$44.00</h3>
+                                </div>
+                            </div>
+                        </div>
+                <div className="!w-[90%] ">
+                            <div className="">
+                                <div className="relative group overflow-hidden">
+                                    <img src={product12} className='w-full lg:h-[270px]' alt="" />
+
+                                    <div className=" absolute left-0 bottom-[-150px]  w-full bg-[#fff] h-[150px] duration-500 ease-in-out flex items-center justify-end group-hover:bottom-0" >
+                                        <div className="">
+                                            <div className="flex items-center justify-end mr-2 py-2">
+                                                <h3 className='mr-2 text-[16px] text-[#767676] font-normal font-dm hover:text-[#262626] hover:font-bold duration-500 ease-in-out'>Add to Wish List</h3>
+                                                <FaHeart />
+                                            </div>
+                                            <div className="flex items-center justify-end mr-2 py-2 ">
+                                                <h3 className='mr-[10px] text-[16px] text-[#767676] font-normal font-dm hover:text-[#262626] hover:font-bold duration-500 ease-in-out'>Compare</h3>
+                                                <TfiReload />
+                                            </div>
+                                            <div className="flex items-center justify-end mr-2 py-2">
+                                                <h3 className='mr-[10px] text-[16px] text-[#767676] font-normal font-dm hover:text-[#262626] hover:font-bold duration-500 ease-in-out'>Add to Cart</h3>
+                                                <FaShoppingCart />
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+                            <div className="flex justify-between items-center  py-5">
+                                <div className="">
+                                    <p className='text-[16px] text-[#262626] font-dm font-bold'>Basic Crew Neck Tee</p>
+                                </div>
+                                <div className="">
+                                    <h3 className='text-[16px] text-[#262626] font-dm font-bold'>$44.00</h3>
+                                </div>
+                            </div>
+                        </div>
                 </Slider>
             </div>
     </Container>
