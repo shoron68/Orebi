@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Container from './Container'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -13,14 +13,11 @@ import { FaHeart, FaShoppingCart } from "react-icons/fa";
 import { TfiReload } from "react-icons/tfi";
 
 import axios from 'axios';
-
-
-
-
-
-
+import { ApiData } from './ContextApi';
 
 const Arrival = () => {
+    let data = useContext(ApiData)
+    console.log(data);
     let [productss, setProductss] = useState([])
 
     let getData = () => {
@@ -35,21 +32,21 @@ const Arrival = () => {
     function SampleNextArrow(props) {
         const { onClick } = props;
         return (
-            <div className='absolute top-[37%] rounded-full h-[50px] w-[50px] bg-[#979797] text-[#FFFFFF] right-[0px] text-[30px] cursor-pointer' onClick={onClick}> <GrLinkNext className='item-center mt-[10px] ml-[5px] ' /> </div>
+            <div className='absolute lg:top-[37%] rounded-full lg:h-[50px] h-[25px] w-[25px] lg:w-[50px] bg-[#979797] text-[#FFFFFF] right-[0px] text-[30px] cursor-pointer' onClick={onClick}> <GrLinkNext className='item-center mt-[10px] ml-[5px] ' /> </div>
         );
     }
 
     function SamplePrevArrow(props) {
         const { onClick } = props;
         return (
-            <div className='absolute top-[37%] rounded-full h-[50px] w-[50px] bg-[#979797] text-[#FFFFFF] left-[0] z-10 text-[30px] cursor-pointer' onClick={onClick}> <GrLinkPrevious className='item-center mt-[10px] ml-[5px] ' /> </div>
+            <div className='absolute lg:top-[37%] top-[50%] translate-y-[-50%] rounded-full lg:h-[50px] h-[25px] w-[25px] lg:w-[50px] bg-[#979797] text-[#FFFFFF] left-[0] z-10 text-[30px] cursor-pointer' onClick={onClick}> <GrLinkPrevious className='item-center mt-[10px] ml-[5px] ' /> </div>
         );
     }
 
 
     var settings = {
         infinite: true,
-        autoplay: true,
+        autoplay: false,
         speed: 500,
         slidesToShow: 4,
         slidesToScroll: 2,

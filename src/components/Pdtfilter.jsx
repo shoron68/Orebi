@@ -87,8 +87,8 @@ const Pdtfilter = () => {
 
               </div>
             </div>
-            <div className="w-[50%]">
-              <div className="flex justify-between mr-[-60px]">
+            <div className="w-[60%]  ">
+              <div className="flex justify-between   ">
 
                 <div className="flex items-center">
                   <div className="">
@@ -102,7 +102,7 @@ const Pdtfilter = () => {
                   </div>
                 </div>
 
-                <div className="flex items-center">
+                <div className="flex items-center ">
                   <div className="">
                     <p className='text-[16px] text-[#767676] font-dm font-normal '>Show:</p>
                   </div>
