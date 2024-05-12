@@ -3,6 +3,7 @@ import axios from 'axios';
 let ApiData = createContext()
 
 const ContextApi = ({children}) => {
+    
     let [product,setProduct] =useState([])
     let getData = ()=>{
         axios.get ("https://dummyjson.com/products").then ((response)=>{

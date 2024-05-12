@@ -6,24 +6,25 @@ import Container from '../Container';
 
 const About = () => {
   let setData = useContext (ApiData)
-  console.log(setData);
+  
   return (
     <>
       <Container>
 
+      <div className=" flex flex-wrap justify-between mt-10">
       {setData.map((items) => (
-        <div className="!w-[25%]"> 
+        <div className="!w-[32%]"> 
           <div className="">
             <div className="relative group overflow-hidden">
-              <img src={items.thumbnail} className='w-full' alt="" />
+              <img src={items.thumbnail} className='w-full h-[350px]' alt="" />
 
-              <div className=" absolute left-0 bottom-[-150px]  w-full bg-[#fff] h-[150px] duration-500 ease-in-out flex items-center justify-end group-hover:bottom-0" >
+              <div className=" absolute left-0 bottom-[-200px]  w-full bg-[#fff] h-[200px] duration-500 ease-in-out flex items-center justify-end group-hover:bottom-0" >
                 <div className="">
                   <div className="flex items-center justify-end mr-2 py-2">
                     <h3 className='mr-2 text-[16px] text-[#767676] font-normal font-dm hover:text-[#262626] hover:font-bold duration-500 ease-in-out'>Add to Wish List</h3>
                     <FaHeart />
                   </div>
-                  <div className="flex items-center justify-end mr-2 py-2 ">
+                  <div className="flex items-center justify-end mr-2 py-5 ">
                     <h3 className='mr-[10px] text-[16px] text-[#767676] font-normal font-dm hover:text-[#262626] hover:font-bold duration-500 ease-in-out'>Compare</h3>
                     <TfiReload />
                   </div>
@@ -47,6 +48,7 @@ const About = () => {
           </div>
         </div>
       ))}
+      </div>
       </Container>
 
     </>

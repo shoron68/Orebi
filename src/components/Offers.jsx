@@ -14,16 +14,16 @@ import { TfiReload } from "react-icons/tfi";
 const Offers = () => {
 
     function SampleNextArrow(props) {
-        const {onClick } = props;
+        const { onClick } = props;
         return (
-            <div data-aos='fade-right' className='absolute top-[37%] h-[50px] w-[50px] bg-[#979797] text-[#FFFFFF] right-[0px] text-[30px] cursor-pointer rounded-full' onClick={onClick}> <GrLinkNext className='item-center mt-[10px] ml-[5px] '  /> </div>
+            <div className='absolute lg:top-[37%] top-[50%] translate-y-[-50%] rounded-full lg:h-[50px] h-[25px] w-[25px] lg:w-[50px] bg-[#979797] text-[#FFFFFF] right-[0px] lg:text-[30px] text-[16px] cursor-pointer' onClick={onClick}> <GrLinkNext className='item-center lg:mt-[10px] mt-[5px] lg:ml-[5px] ml-[4px] ' /> </div>
         );
     }
 
     function SamplePrevArrow(props) {
-        const {onClick } = props;
+        const { onClick } = props;
         return (
-            <div data-aos='fade-left' className='absolute top-[37%] h-[50px] w-[50px] bg-[#979797] text-[#FFFFFF] left-[0] z-10 text-[30px] cursor-pointer  rounded-full' onClick={onClick}> <GrLinkPrevious className='item-center mt-[10px] ml-[5px] ' /> </div>
+            <div className='absolute lg:top-[37%] top-[50%] translate-y-[-50%] rounded-full lg:h-[50px] h-[25px] w-[25px] lg:w-[50px] bg-[#979797] text-[#FFFFFF] left-[0] z-10 lg:text-[30px] text-[16px]cursor-pointer' onClick={onClick}> <GrLinkPrevious className='item-center lg:mt-[10px] mt-[5px] lg:ml-[5px] ml-[4px] ' /> </div>
         );
     }
 
@@ -57,7 +57,7 @@ const Offers = () => {
             {
                 breakpoint: 480,
                 settings: {
-                    slidesToShow: 2 ,
+                    slidesToShow: 1 ,
                     slidesToScroll: 1
                 }
             }
@@ -72,7 +72,7 @@ const Offers = () => {
         <div className=" pt-[48px]">
                 <Slider {...settings}>
 
-                <div className="!w-[90%] ">
+                <div className="lg:!w-[90%] ">
                             <div className="">
                                 <div className="relative group overflow-hidden">
                                     <img src={product9} className='w-full lg:h-[270px]' alt="" />
@@ -109,7 +109,7 @@ const Offers = () => {
                                 </div>
                             </div>
                         </div>
-                <div className="!w-[90%] ">
+                <div className="lg:!w-[90%]  ">
                             <div className="">
                                 <div className="relative group overflow-hidden">
                                     <img src={product10} className='w-full lg:h-[270px]' alt="" />
@@ -146,7 +146,7 @@ const Offers = () => {
                                 </div>
                             </div>
                         </div>
-                <div className="!w-[90%] ">
+                <div className="lg:!w-[90%]  ">
                             <div className="">
                                 <div className="relative group overflow-hidden">
                                     <img src={product11} className='w-full lg:h-[270px]' alt="" />
@@ -183,7 +183,7 @@ const Offers = () => {
                                 </div>
                             </div>
                         </div>
-                <div className="!w-[90%] ">
+                <div className="lg:!w-[90%]  ">
                             <div className="">
                                 <div className="relative group overflow-hidden">
                                     <img src={product12} className='w-full lg:h-[270px]' alt="" />

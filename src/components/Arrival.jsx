@@ -12,34 +12,24 @@ import ads from "../assets/Ads_2.png"
 import { FaHeart, FaShoppingCart } from "react-icons/fa";
 import { TfiReload } from "react-icons/tfi";
 
-import axios from 'axios';
 import { ApiData } from './ContextApi';
 
 const Arrival = () => {
-    let data = useContext(ApiData)
-    console.log(data);
-    let [productss, setProductss] = useState([])
 
-    let getData = () => {
-        axios.get("https://dummyjson.com/products").then((response) => {
-            setProductss(response.data.products);
-        })
-    }
-    useEffect(() => {
-        getData()
-    }, [])
+    let data = useContext(ApiData)
+    
 
     function SampleNextArrow(props) {
         const { onClick } = props;
         return (
-            <div className='absolute lg:top-[37%] rounded-full lg:h-[50px] h-[25px] w-[25px] lg:w-[50px] bg-[#979797] text-[#FFFFFF] right-[0px] text-[30px] cursor-pointer' onClick={onClick}> <GrLinkNext className='item-center mt-[10px] ml-[5px] ' /> </div>
+            <div className='absolute lg:top-[37%] top-[50%] translate-y-[-50%] rounded-full lg:h-[50px] h-[25px] w-[25px] lg:w-[50px] bg-[#979797] text-[#FFFFFF] right-[0px] lg:text-[30px] text-[16px] cursor-pointer' onClick={onClick}> <GrLinkNext className='item-center lg:mt-[10px] mt-[5px] lg:ml-[5px] ml-[4px] ' /> </div>
         );
     }
 
     function SamplePrevArrow(props) {
         const { onClick } = props;
         return (
-            <div className='absolute lg:top-[37%] top-[50%] translate-y-[-50%] rounded-full lg:h-[50px] h-[25px] w-[25px] lg:w-[50px] bg-[#979797] text-[#FFFFFF] left-[0] z-10 text-[30px] cursor-pointer' onClick={onClick}> <GrLinkPrevious className='item-center mt-[10px] ml-[5px] ' /> </div>
+            <div className='absolute lg:top-[37%] top-[50%] translate-y-[-50%] rounded-full lg:h-[50px] h-[25px] w-[25px] lg:w-[50px] bg-[#979797] text-[#FFFFFF] left-[0] z-10 lg:text-[30px] text-[16px]cursor-pointer' onClick={onClick}> <GrLinkPrevious className='item-center lg:mt-[10px] mt-[5px] lg:ml-[5px] ml-[4px] ' /> </div>
         );
     }
 
@@ -65,15 +55,15 @@ const Arrival = () => {
             {
                 breakpoint: 600,
                 settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
                     initialSlide: 2
                 }
             },
             {
                 breakpoint: 480,
                 settings: {
-                    slidesToShow: 2,
+                    slidesToShow: 1,
                     slidesToScroll: 1
                 }
             }
@@ -85,17 +75,17 @@ const Arrival = () => {
 
 
     return (
-        <Container className={`lg:pt-[128px] pt-[50px] lg:px-0 px-[10px]`}>
+        <Container className={`lg:pt-[128px] pt-[50px] lg:px-0 px-[10px] mx-[10px] lg:mx-0`}>
             <div className="">
                 <h2 className='text-[39px] text-[#292929] font-dm font-bold'>New Arrivals</h2>
             </div>
             <div className=" pt-[48px]">
                 <Slider {...settings}>
-                    {productss.map((items) => (
-                        <div className="!w-[90%]    ">
+                    {data.map((items) => (
+                        <div className="lg:!w-[90%]    ">
                             <div className="">
                                 <div className="relative group overflow-hidden">
-                                    <img src={items.thumbnail} className='w-full lg:h-[270px]' alt="" />
+                                    <img src={items.thumbnail} className='w-full h-[200px] lg:h-[270px]' alt="" />
 
                                     <div className=" absolute left-0 bottom-[-150px]  w-full bg-[#fff] h-[150px] duration-500 ease-in-out flex items-center justify-end group-hover:bottom-0" >
                                         <div className="">
@@ -122,10 +112,10 @@ const Arrival = () => {
 
                             <div className="flex justify-between items-center  py-5">
                                 <div className="">
-                                    <p className='text-[16px] text-[#262626] font-dm font-bold'>Basic Crew Neck Tee</p>
+                                    <p className='text-[16px] text-[#262626] font-dm font-bold'>{items.title}</p>
                                 </div>
                                 <div className="">
-                                    <h3 className='text-[16px] text-[#262626] font-dm font-bold'>$44.00</h3>
+                                    <h3 className='text-[16px] text-[#262626] font-dm font-bold'>{items.price}</h3>
                                 </div>
                             </div>
                         </div>
@@ -137,7 +127,7 @@ const Arrival = () => {
             </div>
             <div className=" lg:pt-[200px] pt-[50px]">
                 <Slider {...settings}>
-                <div className="!w-[90%] ">
+                <div className="lg:!w-[90%] ">
                             <div className="">
                                 <div className="relative group overflow-hidden">
                                     <img src={product5} className='w-full lg:h-[270px]' alt="" />
@@ -174,7 +164,7 @@ const Arrival = () => {
                                 </div>
                             </div>
                         </div>
-                <div className="!w-[90%] ">
+                <div className="lg:!w-[90%] ">
                             <div className="">
                                 <div className="relative group overflow-hidden">
                                     <img src={product6} className='w-full lg:h-[270px]' alt="" />
@@ -211,7 +201,7 @@ const Arrival = () => {
                                 </div>
                             </div>
                         </div>
-                <div className="!w-[90%] ">
+                <div className="lg:!w-[90%] ">
                             <div className="">
                                 <div className="relative group overflow-hidden">
                                     <img src={product7} className='w-full lg:h-[270px]' alt="" />
@@ -248,7 +238,7 @@ const Arrival = () => {
                                 </div>
                             </div>
                         </div>
-                <div className="!w-[90%] ">
+                <div className="lg:!w-[90%] ">
                             <div className="">
                                 <div className="relative group overflow-hidden">
                                     <img src={product8} className='w-full lg:h-[270px]' alt="" />
