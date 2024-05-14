@@ -145,6 +145,41 @@ const Productdtl = () => {
                         </div>
                     </div>
 
+                    <div className="py-[50px]">
+                        <span className='text-[20px] text-[#262626] font-dm font-bold'>Add a Review</span>
+                    </div>
+
+                    <div className="pb-[30px] border-b-2 border-[rgba(118,118,118,0.23)]">
+                        <div className="">
+                            <h2 className='text-[20px] text-[#262626] font-dm font-bold'>Name</h2>
+                        </div>
+                        <div className="pt-[10px]">
+                            <input type="text" className='outline-none  w-full' placeholder='Enter Name' />
+                        </div>
+                    </div>
+
+
+                    <div className="py-[30px] border-b-2 border-[rgba(118,118,118,0.23)]">
+                        <div className="">
+                            <h2 className='text-[20px] text-[#262626] font-dm font-bold'>Email</h2>
+                        </div>
+                        <div className="pt-[10px]">
+                            <input type="text" className='outline-none  w-full' placeholder='Enter Name' />
+                        </div>
+                    </div>
+
+
+                    <div className="pt-[30px] pb-[70px] border-b-2 border-[rgba(118,118,118,0.23)]">
+                        <div className="">
+                            <h2 className='text-[20px] text-[#262626] font-dm font-bold'>Review</h2>
+                        </div>
+                        <div className="pt-[10px]">
+                            <input type="text" className='outline-none w-full' placeholder='Enter Name' />
+                        </div>
+                    </div>
+                    <div className="py-[30px]">
+                        <button className='w-[200px] h-[50px] border-2 border-[#262626] font-dm font-normal hover:bg-[#262626] hover:text-[#fff] duration-500 ease-in-out'>Post</button>
+                    </div>
                 </div>
             </Container>
         </>
