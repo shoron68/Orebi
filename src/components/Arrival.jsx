@@ -11,7 +11,6 @@ import product8 from "../assets/Product_8.png"
 import ads from "../assets/Ads_2.png"
 import { FaHeart, FaShoppingCart } from "react-icons/fa";
 import { TfiReload } from "react-icons/tfi";
-
 import { ApiData } from './ContextApi';
 
 const Arrival = () => {
@@ -75,7 +74,7 @@ const Arrival = () => {
 
 
     return (
-        <Container className={`lg:pt-[128px] pt-[50px] lg:px-0 px-[10px] mx-[10px] lg:mx-0`}>
+        <Container className={`lg:pt-[128px] pt-[50px] lg:px-0 px-[10px] mx-[10px] lg:mx-auto `}>
             <div className="">
                 <h2 className='text-[39px] text-[#292929] font-dm font-bold'>New Arrivals</h2>
             </div>
