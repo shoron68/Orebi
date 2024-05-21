@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext} from 'react'
 import Container from './Container'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
