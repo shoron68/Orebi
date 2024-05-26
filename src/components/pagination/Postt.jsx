@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FaHeart, FaShoppingCart } from "react-icons/fa";
 import { TfiReload } from "react-icons/tfi";
 import { Link } from 'react-router-dom';
 
 const Postt = ({allPage}) => {
+    
   return (
 
 
@@ -41,7 +42,7 @@ const Postt = ({allPage}) => {
                                     <p className='text-[16px] text-[#262626] font-dm font-bold'>{items.title}</p>
                                 </div>
                                 <div className="">
-                                    <h3 className='text-[16px] text-[#262626] font-dm font-bold'>{items.price}</h3>
+                                    <h3 className='text-[16px] text-[#262626] font-dm font-bold'>${items.price}</h3>
                                 </div>
                             </div>
                             </Link>

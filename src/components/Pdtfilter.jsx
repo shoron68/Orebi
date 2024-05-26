@@ -1,7 +1,7 @@
 import React, { useContext, useState} from 'react'
 import Container from './Container'
 import { FiPlus } from "react-icons/fi";
-import { IoMdArrowDropup } from "react-icons/io";
+import { IoMdArrowDropup,IoMdArrowDropdown  } from "react-icons/io";
 import { IoGrid } from "react-icons/io5";
 import { TfiMenuAlt } from "react-icons/tfi";
 import { TiArrowSortedDown } from "react-icons/ti";
@@ -49,6 +49,9 @@ const Pdtfilter = () => {
     }
     
   }
+  let [show,setShow] =useState(false)
+  let [show2,setShow2] =useState(false)
+  let [show3,setShow3] =useState(false)
 
 
   return (
@@ -60,45 +63,64 @@ const Pdtfilter = () => {
             <span className='text-[14px] text-[#767676] font-dm font-normal'>Home &#62; Products</span>
           </div>
           <div className="lg:pt-[130px] pt-[60px]">
-            <div className="">
+            <div  className="">
+              <div onClick={()=>setShow(!show)} className="border-b-2 pb-[25px]">
+                <span  className='text-[16px] text-[#262626] font-dm font-bold cursor-pointer '>Shop by Category</span>
+              </div>
+              {show && 
               <ul>
-                <li className='text-[16px] text-[#262626] font-dm font-bold'>Shop by Category</li>
-                <li className='flex items-center justify-between text-[14px] text-[#767676] py-[22px] border-b-2 border-[#7676762f]'>Category 1
-                  <FiPlus /></li>
-                <li className='flex items-center text-[14px] text-[#767676] py-[22px] border-b-2 border-[#7676762f]'>Category 2</li>
-                <li className='flex items-center text-[14px] text-[#767676] py-[22px] border-b-2 border-[#7676762f] justify-between'>Category 3 <FiPlus /></li>
-                <li className='flex items-center text-[14px] text-[#767676] py-[22px] border-b-2 border-[#7676762f]'>Category 4</li>
-                <li className='flex items-center text-[14px] text-[#767676] py-[22px] border-b-2 border-[#7676762f]'>Category 5</li>
-              </ul>
+              <li className='flex items-center justify-between text-[14px] text-[#767676] py-[22px] border-b-2 border-[#7676762f]'>Category 1
+                <FiPlus /></li>
+              <li className='flex items-center text-[14px] text-[#767676] py-[22px] border-b-2 border-[#7676762f]'>Category 2</li>
+              <li className='flex items-center text-[14px] text-[#767676] py-[22px] border-b-2 border-[#7676762f] justify-between'>Category 3 <FiPlus /></li>
+              <li className='flex items-center text-[14px] text-[#767676] py-[22px] border-b-2 border-[#7676762f]'>Category 4</li>
+              <li className='flex items-center text-[14px] text-[#767676] py-[22px] border-b-2 border-[#7676762f]'>Category 5</li>
+            </ul>
+              }
+              
             </div>
 
             <div className=" pt-[53px]">
+            <div onClick={()=>setShow2(!show2)} className="border-b-2 pb-[25px] flex justify-between">
+                <span  className='text-[16px] text-[#262626] font-dm font-bold cursor-pointer '>Shop by Color</span>
+                {show2 == true ? <IoMdArrowDropup />  : <IoMdArrowDropdown/> }
+                
+              </div>
+              {show2 && 
               <ul>
-                <li className='text-[16px]  text-[#262626] font-dm font-bold flex justify-between items-center'>Shop by Color <IoMdArrowDropup /></li>
-                <li className='text-[14px] flex items-center text-[#767676] py-[22px] border-b-2 border-[#7676762f]'> <div className="mr-[10px] h-[10px] w-[10px] rounded-full bg-[black]"></div>Color 1
-                </li>
-                <li className='text-[14px] flex items-center text-[#767676] py-[22px] border-b-2 border-[#7676762f]'> <div className="mr-[10px] h-[10px] w-[10px] rounded-full bg-[#FF8686]"></div>Color 1
-                </li>
-                <li className='text-[14px] flex items-center text-[#767676] py-[22px] border-b-2 border-[#7676762f]'> <div className="mr-[10px] h-[10px] w-[10px] rounded-full bg-[#7ED321]"></div>Color 1
-                </li>
-                <li className='text-[14px] flex items-center text-[#767676] py-[22px] border-b-2 border-[#7676762f]'> <div className="mr-[10px] h-[10px] w-[10px] rounded-full bg-[#979797]"></div>Color 1
-                </li>
-                <li className='text-[14px] flex items-center text-[#767676] py-[22px] border-b-2 border-[#7676762f]'> <div className="mr-[10px] h-[10px] w-[10px] rounded-full bg-[#15CBA5]"></div>Color 1
-                </li>
+              <li className='text-[14px] flex items-center text-[#767676] py-[22px] border-b-2 border-[#7676762f]'> <div className="mr-[10px] h-[10px] w-[10px] rounded-full bg-[black]"></div>Color 1
+              </li>
+              <li className='text-[14px] flex items-center text-[#767676] py-[22px] border-b-2 border-[#7676762f]'> <div className="mr-[10px] h-[10px] w-[10px] rounded-full bg-[#FF8686]"></div>Color 1
+              </li>
+              <li className='text-[14px] flex items-center text-[#767676] py-[22px] border-b-2 border-[#7676762f]'> <div className="mr-[10px] h-[10px] w-[10px] rounded-full bg-[#7ED321]"></div>Color 1
+              </li>
+              <li className='text-[14px] flex items-center text-[#767676] py-[22px] border-b-2 border-[#7676762f]'> <div className="mr-[10px] h-[10px] w-[10px] rounded-full bg-[#979797]"></div>Color 1
+              </li>
+              <li className='text-[14px] flex items-center text-[#767676] py-[22px] border-b-2 border-[#7676762f]'> <div className="mr-[10px] h-[10px] w-[10px] rounded-full bg-[#15CBA5]"></div>Color 1
+              </li>
 
-              </ul>
+            </ul>
+              
+              }
             </div>
 
             <div className="pt-[53px]">
+
+            <div onClick={()=>setShow3(!show3)} className="border-b-2 pb-[25px]">
+                <span  className='text-[16px] text-[#262626] font-dm font-bold cursor-pointer '>Shop by Price</span>
+              </div>
+
+             {show3 && 
               <ul>
-                <li className='text-[16px] text-[#262626] font-dm font-bold'>Shop by Price</li>
-                <li className=' text-[14px] text-[#767676] py-[22px] border-b-2 border-[#7676762f]'>$0.00 - $9.99
-                </li>
-                <li className='flex items-center text-[14px] text-[#767676] py-[22px] border-b-2 border-[#7676762f]'>$10.00 - $19.99</li>
-                <li className=' text-[14px] text-[#767676] py-[22px] border-b-2 border-[#7676762f] '>$20.00 - $29.99 </li>
-                <li className='flex items-center text-[14px] text-[#767676] py-[22px] border-b-2 border-[#7676762f]'>$30.00 - $39.99</li>
-                <li className='flex items-center text-[14px] text-[#767676] py-[22px] border-b-2 border-[#7676762f]'>$40.00 - $69.99</li>
-              </ul>
+              <li className=' text-[14px] text-[#767676] py-[22px] border-b-2 border-[#7676762f]'>$0.00 - $9.99
+              </li>
+              <li className='flex items-center text-[14px] text-[#767676] py-[22px] border-b-2 border-[#7676762f]'>$10.00 - $19.99</li>
+              <li className=' text-[14px] text-[#767676] py-[22px] border-b-2 border-[#7676762f] '>$20.00 - $29.99 </li>
+              <li className='flex items-center text-[14px] text-[#767676] py-[22px] border-b-2 border-[#7676762f]'>$30.00 - $39.99</li>
+              <li className='flex items-center text-[14px] text-[#767676] py-[22px] border-b-2 border-[#7676762f]'>$40.00 - $69.99</li>
+            </ul>
+             
+             }
             </div>
           </div>
         </div>
