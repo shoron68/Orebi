@@ -1,10 +1,18 @@
 import React from 'react'
 import Container from './Container'
 import { RxCross2 } from "react-icons/rx";
-import cartimg from "../assets/cartimg.png"
+import {useDispatch, useSelector } from 'react-redux';
+import { productClear, productDecrement, productIncrement } from './slice/productSlice';
+
 
 
 const CartItems = () => {
+  let dispatch = useDispatch()
+  let data = useSelector((state)=>state.prodcut.cartItem)
+
+
+  
+
   return (
     <Container>
       <div className="py-[124px]">
@@ -35,44 +43,46 @@ const CartItems = () => {
 
 
 
-        <div className=" h-[160px] flex justify-start items-center border-[1px] border-[#F0F0F0] ">
+        {data.map((item,i)=>(
+          <div className=" h-[160px] flex justify-start items-center border-[1px] border-[#F0F0F0] ">
           <div className="w-[25%] ">
             <div className="flex justify-around items-center">
-              <div className="">
+              <div onClick={()=>dispatch(productClear(i))} className="cursor-pointer">
                 <RxCross2 />
               </div>
               <div className="">
-                <img src={cartimg} alt="" />
+                <img src={item.thumbnail} className='w-[100px] h-[100px]' alt="" />
               </div>
               <div className="">
-                <span className='text-[16px] text-[#262626] font-dm font-bold'>Product name</span>
+                <span className='text-[16px] text-[#262626] font-dm font-bold'>{item.title}</span>
               </div>
             </div>
           </div>
           <div className="w-[25%] pl-[20px]">
             <div className="">
-              <span className='text-[16px] text-[#262626] font-dm font-bold'>$44.00</span>
+              <span className='text-[16px] text-[#262626] font-dm font-bold'>${item.price}</span>
             </div>
           </div>
           <div className="w-[25%] pl-[20px]">
             <div className="flex justify-around w-[139px] h-[36px] border-[1px] items-center">
               <div className="">
-                <span className='text-[16px] text-[#262626] font-dm font-bold'>-</span>
+                <span onClick={()=>dispatch(productDecrement(i))} className=' cursor-pointer text-[16px] text-[#262626] font-dm font-bold'>-</span>
               </div>
               <div className="">
-                <span className='text-[16px] text-[#262626] font-dm font-normal'>1</span>
+                <span className='text-[16px] text-[#262626] font-dm font-normal'>{item.qun}</span>
               </div>
               <div className="">
-                <span className='text-[16px] text-[#262626] font-dm font-bold'>+</span>
+                <span onClick={()=>dispatch(productIncrement(i))}  className=' cursor-pointer text-[16px] text-[#262626] font-dm font-bold'>+</span>
               </div>
             </div>
           </div>
           <div className="w-[25%] pl-[20px]">
             <div className="">
-              <span className='text-[16px] text-[#262626] font-dm font-bold'>$44.00</span>
+              <span className='text-[16px] text-[#262626] font-dm font-bold'>${item.price*item.qun}</span>
             </div>
           </div>
         </div>
+        ))}
 
 
 
