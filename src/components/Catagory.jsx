@@ -5,10 +5,13 @@ import { IoIosSearch } from "react-icons/io";
 import { FaUser, FaShoppingCart } from "react-icons/fa";
 import { useRef } from 'react';
 import { RxCross2 } from "react-icons/rx";
+import { useDispatch, useSelector } from 'react-redux';
+
 
 
 
 const Catagory = () => {
+    let dispatch = useDispatch()
     let [catshow, setCatshow] = useState(false)
     let [cartshow, setCartshow] = useState(false)
     let [usershow, setUsertshow] = useState(false)
@@ -17,6 +20,11 @@ const Catagory = () => {
     let userMenu = useRef()
     let chartMenu = useRef()
     let catMenu = useRef()
+    let data = useSelector((state) => state.prodcut.cartItem)
+
+
+
+
 
     useEffect(() => {
         document.addEventListener("click", (e) => {
@@ -46,7 +54,7 @@ const Catagory = () => {
 
 
         })
-    }, [catshow,cartshow,usershow,itemshow])
+    }, [catshow, cartshow, usershow, itemshow])
 
 
 
@@ -71,52 +79,52 @@ const Catagory = () => {
                                         {itemshow &&
                                             <div className=" lg:flex z-50 absolute lg:top-[-98px] top-[200px] lg:left-[300px] left-[0] bg-[#FFFFFF] py-[24px] lg:px-[25px]">
                                                 <div className="flex">
-                                                <div className="  w-[100px] ">
-                                                    <ul>
-                                                        <li><h6 className='text-[14px] text-[#262626] font-dm font-bold pb-[21px]'>Phones</h6></li>
-                                                        <li><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Phone 1</a></li>
-                                                        <li className='py-[10px]'><a href="#" className='text-[14px] text-[#262626] font-dm font-normal  hover:font-bold duration-200'>Phone 2</a></li>
-                                                        <li><a href="#" className='text-[14px] text-[#262626] font-dm hover:font-bold duration-200 font-normal'>Phone 3</a></li>
-                                                        <li className='py-[10px]'><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Phone 4</a></li>
-                                                        <li><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Phone 5</a></li>
-                                                        <li className='py-[10px]'><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Phone 6</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div className=" w-[100px]">
-                                                    <ul>
-                                                        <li><h6 className='text-[14px] text-[#262626] font-dm font-bold pb-[21px]'>Computers</h6></li>
-                                                        <li><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Computer 1</a></li>
-                                                        <li className='py-[10px]'><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Computer 2</a></li>
-                                                        <li><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Computer 3</a></li>
-                                                        <li className='py-[10px]'><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Computer 4</a></li>
-                                                        <li><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Computer 5</a></li>
-                                                        <li className='py-[10px]'><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Computer 6</a></li>
-                                                    </ul>
-                                                </div>
+                                                    <div className="  w-[100px] ">
+                                                        <ul>
+                                                            <li><h6 className='text-[14px] text-[#262626] font-dm font-bold pb-[21px]'>Phones</h6></li>
+                                                            <li><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Phone 1</a></li>
+                                                            <li className='py-[10px]'><a href="#" className='text-[14px] text-[#262626] font-dm font-normal  hover:font-bold duration-200'>Phone 2</a></li>
+                                                            <li><a href="#" className='text-[14px] text-[#262626] font-dm hover:font-bold duration-200 font-normal'>Phone 3</a></li>
+                                                            <li className='py-[10px]'><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Phone 4</a></li>
+                                                            <li><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Phone 5</a></li>
+                                                            <li className='py-[10px]'><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Phone 6</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div className=" w-[100px]">
+                                                        <ul>
+                                                            <li><h6 className='text-[14px] text-[#262626] font-dm font-bold pb-[21px]'>Computers</h6></li>
+                                                            <li><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Computer 1</a></li>
+                                                            <li className='py-[10px]'><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Computer 2</a></li>
+                                                            <li><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Computer 3</a></li>
+                                                            <li className='py-[10px]'><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Computer 4</a></li>
+                                                            <li><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Computer 5</a></li>
+                                                            <li className='py-[10px]'><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Computer 6</a></li>
+                                                        </ul>
+                                                    </div>
                                                 </div>
                                                 <div className="flex">
-                                                <div className=" w-[140px]">
-                                                    <ul>
-                                                        <li><h6 className='text-[14px] text-[#262626] font-dm font-bold pb-[21px]'>Smart watches</h6></li>
-                                                        <li><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Smart watches 1</a></li>
-                                                        <li className='py-[10px]'><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Smart watches 2</a></li>
-                                                        <li><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Smart watches 3</a></li>
-                                                        <li className='py-[10px]'><a href="#" className='text-[14px] text-[#262626] font-dm font-normal'>Smart watches 4</a></li>
-                                                        <li><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Smart watches 5</a></li>
-                                                        <li className='py-[10px]'><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Smart watches 6</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div className=" w-[100px]">
-                                                    <ul>
-                                                        <li><h6 className='text-[14px] text-[#262626] font-dm font-bold pb-[21px]'>Cameras</h6></li>
-                                                        <li><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Camera 1</a></li>
-                                                        <li className='py-[10px]'><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Camera 2</a></li>
-                                                        <li><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Camera 3</a></li>
-                                                        <li className='py-[10px]'><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Camera 4</a></li>
-                                                        <li><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Camera 5</a></li>
-                                                        <li className='py-[10px]'><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Camera 6</a></li>
-                                                    </ul>
-                                                </div>
+                                                    <div className=" w-[140px]">
+                                                        <ul>
+                                                            <li><h6 className='text-[14px] text-[#262626] font-dm font-bold pb-[21px]'>Smart watches</h6></li>
+                                                            <li><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Smart watches 1</a></li>
+                                                            <li className='py-[10px]'><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Smart watches 2</a></li>
+                                                            <li><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Smart watches 3</a></li>
+                                                            <li className='py-[10px]'><a href="#" className='text-[14px] text-[#262626] font-dm font-normal'>Smart watches 4</a></li>
+                                                            <li><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Smart watches 5</a></li>
+                                                            <li className='py-[10px]'><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Smart watches 6</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div className=" w-[100px]">
+                                                        <ul>
+                                                            <li><h6 className='text-[14px] text-[#262626] font-dm font-bold pb-[21px]'>Cameras</h6></li>
+                                                            <li><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Camera 1</a></li>
+                                                            <li className='py-[10px]'><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Camera 2</a></li>
+                                                            <li><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Camera 3</a></li>
+                                                            <li className='py-[10px]'><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Camera 4</a></li>
+                                                            <li><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Camera 5</a></li>
+                                                            <li className='py-[10px]'><a href="#" className='text-[14px] text-[#262626] font-dm font-normal hover:font-bold duration-200'>Camera 6</a></li>
+                                                        </ul>
+                                                    </div>
                                                 </div>
                                             </div>
                                         }
@@ -155,36 +163,43 @@ const Catagory = () => {
                                 }
                             </div>
                             <div className="relative" ref={chartMenu}>
-                                <a href="#"  >
+                                <a>
+                                    {data.length ? <div className="h-[20px] w-[20px] rounded-full absolute top-[-15px] left-[36px] bg-[#F5F5f3] text-center leading-5 font-dm font-normal text-[14px]">{data.length}</div> : ""}
                                     <FaShoppingCart className='lg:text-[24px] text-[#262626] ml-[15px]' />
                                 </a>
                                 {cartshow &&
                                     <div className="absolute z-50 top-[40px] lg:right-0 right-[-15px] ">
-                                        <div className="flex bg-[#F5F5F3] py-[20px] px-[20px]">
-                                            <div className="flex items-center justify-between w-[350px]">
-                                                <div className="h-[100px] w-[100px] bg-[#979797] mr-[20px]"></div>
-                                                <div className="">
-                                                    <h4 className='text-[14px ] text-[#262626] font-dm font-bold'>Black Smart Watch</h4>
-                                                    <p className='text-[14px ] text-[#262626] font-dm font-bold'>$44.00</p>
-                                                </div>
-                                                <div className="ml-[30px]">
-                                                    <RxCross2 />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="bg-[white] py-[20px] px-[20px]">
+                                        {data.map((item, i) => (
                                             <div className="">
-                                                <h3 className=''><span className='text-[16px] text-[rgba(38,38,38,0.67)] font-dm font-normal'>Subtotal:</span> <span className='text-[16px] text-[rgb(38,38,38)] font-dm font-bold'> $44.00</span></h3>
-                                            </div>
-                                            <div className="flex justify-between py-[20px]">
-                                                <div className="">
-                                                    <a href="#" className='py-[16px] px-[40px] border text-[16px] text-[#262626] font-dm font-normal hover:bg-[#262626] hover:text-[white] duration-500 '>View Cart</a>
+                                                <div className="flex bg-[#F5F5F3] py-[20px] px-[20px]">
+                                                    <div className="flex items-center justify-between w-[350px]">
+                                                        <div className="h-[100px] w-[100px]  mr-[20px]">
+                                                            <img src={item.thumbnail} alt="" />
+                                                        </div>
+                                                        <div className="">
+                                                            <h4 className='text-[14px ] text-[#262626] font-dm font-bold'>{item.title}</h4>
+                                                            <p className='text-[14px ] text-[#262626] font-dm font-bold'>${item.price}</p>
+                                                        </div>
+                                                        <div onClick={() => dispatch(productClear(i))} className="cursor-pointer ml-[30px]">
+                                                            <RxCross2 />
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div className="">
-                                                    <a href="#" className='py-[16px] px-[40px] border text-[16px] text-[#262626] font-dm font-normal hover:bg-[#262626] hover:text-[white] duration-500 '>Checkout</a>
+                                                <div className="bg-[white] py-[20px] px-[20px]">
+                                                    <div className="">
+                                                        <h3 className=''><span className='text-[16px] text-[rgba(38,38,38,0.67)] font-dm font-normal'>Subtotal:</span> <span className='text-[16px] text-[rgb(38,38,38)] font-dm font-bold'>${item.price * item.qun}</span></h3>
+                                                    </div>
+                                                    <div className="flex justify-between py-[20px]">
+                                                        <div className="">
+                                                            <a href="#" className='py-[16px] px-[40px] border text-[16px] text-[#262626] font-dm font-normal hover:bg-[#262626] hover:text-[white] duration-500 '>View Cart</a>
+                                                        </div>
+                                                        <div className="">
+                                                            <a href="#" className='py-[16px] px-[40px] border text-[16px] text-[#262626] font-dm font-normal hover:bg-[#262626] hover:text-[white] duration-500 '>Checkout</a>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        ))}
                                     </div>
                                 }
 

@@ -37,7 +37,7 @@ export const productSlice = createSlice({
   },
 
   productClear:(state,action)=>{
-    state.cartItem.splice(action.payload)
+    state.cartItem.splice(action.payload, 1)
     localStorage.setItem("cart", JSON.stringify(state.cartItem))
   }
     

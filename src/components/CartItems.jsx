@@ -10,6 +10,12 @@ const CartItems = () => {
   let dispatch = useDispatch()
   let data = useSelector((state)=>state.prodcut.cartItem)
 
+  let {totalPrice,totoalQuantity} = data.reduce((account, item)=>{
+    account.totalPrice += item.price * item.qun
+    account.totoalQuantity += item.qun
+    return account 
+  },{totalPrice:0, totoalQuantity:0})
+
 
   
 
@@ -118,7 +124,17 @@ const CartItems = () => {
                 </div>
                 <div className="">
                   <div className=" border-[1px] border-[#F0F0F0] h-[54px] w-[322px] ">
-                    <p className='text-[16px] text-[#767676] font-dm font-bold leading-[50px] pl-[20px] '>389.99 $</p>
+                    <p className='text-[16px] text-[#767676] font-dm font-bold leading-[50px] pl-[20px] '>${totalPrice}</p>
+                  </div>
+                </div>
+              </div>
+              <div className="flex">
+                <div className=" border-[1px] border-[#F0F0F0] h-[54px] w-[322px] ">
+                  <p className='text-[16px] text-[#262626] font-dm font-bold leading-[50px] pl-[20px] '>Total Quntity</p>
+                </div>
+                <div className="">
+                  <div className=" border-[1px] border-[#F0F0F0] h-[54px] w-[322px] ">
+                    <p className='text-[16px] text-[#767676] font-dm font-bold leading-[50px] pl-[20px] '>{totoalQuantity}</p>
                   </div>
                 </div>
               </div>
@@ -128,7 +144,7 @@ const CartItems = () => {
                 </div>
                 <div className="">
                   <div className=" border-[1px] border-[#F0F0F0] h-[54px] w-[322px] ">
-                    <p className='text-[16px] text-[#767676] font-dm font-bold leading-[50px] pl-[20px] '>389.99 $</p>
+                    <p className='text-[16px] text-[#767676] font-dm font-bold leading-[50px] pl-[20px] '>${totalPrice}</p>
                   </div>
                 </div>
               </div>
