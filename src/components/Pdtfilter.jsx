@@ -21,6 +21,7 @@ const Pdtfilter = () => {
   let data = useContext(ApiData)
   let [pageStart, setPageStart] = useState(1)
   let [perPage, setperPage] = useState(6)
+  let [categoryFilter, setCategoryFilter] = useState([])
 
   let lastPage = pageStart * perPage
   let firstPage = lastPage - perPage
@@ -28,13 +29,15 @@ const Pdtfilter = () => {
   let allPage = data.slice(firstPage, lastPage)
 
   let pageNumber = []
-  for (let i = 0; i < Math.ceil(data.length / perPage); i++) {
+  for(let i = 0; i < Math.ceil(categoryFilter.length > 0 ? categoryFilter :data.length / perPage); i++){
     pageNumber.push(i)
-  }
+}
+
   let paginate = (pageNumber) => {
 
     setPageStart(pageNumber + 1)
   }
+
   let next = () => {
 
     if (pageStart < pageNumber.length) {
@@ -42,6 +45,7 @@ const Pdtfilter = () => {
     }
 
   }
+  
   let prev = () => {
 
     if (pageStart > 1) {
@@ -61,7 +65,15 @@ const Pdtfilter = () => {
   useEffect(() => {
     setCategory([...new Set(data.map((item) => item.category))])
   }, [data])
-  console.log(category);
+
+
+
+
+  let handelCategory = (categoryitem)=>{
+    let catFilter = data.filter((item)=>item.category == categoryitem)
+    setCategoryFilter(catFilter)
+  }
+
 
 
   
@@ -81,7 +93,7 @@ const Pdtfilter = () => {
               {show &&
                 <ul>
                   {category.map((item) => (
-                    <li className='flex items-center justify-between text-[14px] text-[#767676] py-[22px] border-b-2 border-[#7676762f]'>{item}</li>
+                    <li onClick={()=>handelCategory(item)} className='flex items-center justify-between text-[14px] text-[#767676] py-[22px] border-b-2 border-[#7676762f]'>{item}</li>
                   ))}
                 </ul>
               }
@@ -178,7 +190,7 @@ const Pdtfilter = () => {
 
 
 
-          <Postt allPage={allPage} />
+          <Postt allPage={allPage}  categoryFilter={categoryFilter}  />
           <div className="text-end">
             <PaginationArea pageNumber={pageNumber} paginate={paginate} pageStart={pageStart} next={next} prev={prev} />
           </div>
