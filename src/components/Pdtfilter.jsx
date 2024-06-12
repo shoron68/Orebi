@@ -1,11 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react'
 import Container from './Container'
-import { FiPlus } from "react-icons/fi";
 import { IoMdArrowDropup, IoMdArrowDropdown } from "react-icons/io";
 import { IoGrid } from "react-icons/io5";
 import { TfiMenuAlt } from "react-icons/tfi";
 import { TiArrowSortedDown } from "react-icons/ti";
-
 import { ApiData } from './ContextApi';
 import Postt from './pagination/Postt';
 import PaginationArea from './pagination/PaginationArea';
@@ -56,6 +54,7 @@ const Pdtfilter = () => {
   let [show, setShow] = useState(false)
   let [show2, setShow2] = useState(false)
   let [show3, setShow3] = useState(false)
+  let [multi,setMulti] =useState("")
 
 
 
@@ -72,6 +71,10 @@ const Pdtfilter = () => {
   let handelCategory = (categoryitem)=>{
     let catFilter = data.filter((item)=>item.category == categoryitem)
     setCategoryFilter(catFilter)
+  }
+
+  let handelList = ()=>{
+    setMulti("activeMulti")
   }
 
 
@@ -148,10 +151,10 @@ const Pdtfilter = () => {
           <div className="lg:flex justify-between">
             <div className="lg:w-[10%]">
               <div className="flex items-center">
-                <div className="mr-[20px] py-[12px] px-[12px] border-2 duration-500 ease-in-out hover:bg-[#262626] hover:text-[#fff]">
+                <div onClick={()=>setMulti("")} className="mr-[20px] py-[12px] px-[12px] border-2 duration-500 ease-in-out hover:bg-[#262626] hover:text-[#fff]">
                   <IoGrid />
                 </div>
-                <div className="py-[12px] px-[12px] border-2 duration-500 ease-in-out hover:bg-[#262626] hover:text-[#fff]">
+                <div onClick={handelList} className="py-[12px] px-[12px] border-2 duration-500 ease-in-out hover:bg-[#262626] hover:text-[#fff]">
                   <TfiMenuAlt />
                 </div>
 
@@ -190,7 +193,7 @@ const Pdtfilter = () => {
 
 
 
-          <Postt allPage={allPage}  categoryFilter={categoryFilter}  />
+          <Postt allPage={allPage}  categoryFilter={categoryFilter} multi={multi}  />
           <div className="text-end">
             <PaginationArea pageNumber={pageNumber} paginate={paginate} pageStart={pageStart} next={next} prev={prev} />
           </div>

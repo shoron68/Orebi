@@ -2,10 +2,15 @@ import React, { useEffect, useState } from 'react'
 import { FaHeart, FaShoppingCart } from "react-icons/fa";
 import { TfiReload } from "react-icons/tfi";
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux'
+import { addToCart } from '../slice/productSlice';
+import { useNavigate } from 'react-router-dom';
 
-const Postt = ({ allPage, categoryFilter }) => {
-    let [showAll,setShowAll] = useState()
+const Postt = ({ allPage, categoryFilter,multi }) => {
+    let dispatch = useDispatch()
     let [filter, setFilter] = useState([])
+    let [count,setCount] = useState(true)
+    let navigate = useNavigate()
 
     useEffect(() => {
         let showFilter = categoryFilter.slice(0,5)
@@ -15,11 +20,19 @@ const Postt = ({ allPage, categoryFilter }) => {
 
     let handelFilShow = ()=>{
         setFilter(categoryFilter)
+        setCount(false)
     }
 
     let handelFilHide = () =>{
         setFilter(categoryFilter)
     }
+    let handelProductCart = (items)=>{
+        dispatch(addToCart({...items, qun:1}))
+        setTimeout(()=>{
+            navigate("/shop")
+        })
+    }
+    
 
     return (
 
@@ -29,9 +42,9 @@ const Postt = ({ allPage, categoryFilter }) => {
             {categoryFilter.length > 0 ?
 
                 <div className=" ">
-                    <div className="flex justify-between flex-wrap mt-[40px]">
+                    <div className="">
                         {filter.map((items, i) => (
-                            <  div key={i} className="lg:!w-[32%]">
+                            <  div key={i} className={`${multi == "activeMulti" ? "!w-[100%]" :"lg:!w-[32%]" }`}>
                                 <Link to={`/shop/${items.id}`}>
                                     <div className="">
                                         <div className="relative group overflow-hidden">
@@ -70,28 +83,27 @@ const Postt = ({ allPage, categoryFilter }) => {
                         ))}
                     </div>
                     <div className="">
+
+                        { count ? categoryFilter.length > 5 && 
+                        <button onClick={handelFilShow} className='h-[50px] font-dm font-normal w-[100px] border-[1px] border-[#262626] rounded-[5px] hover:bg-[#262626] hover:text-[#fff] duration-500'>Show All</button> 
+                        :
+                        <button onClick={handelFilHide} className='h-[50px] font-dm font-normal w-[100px] border-[1px] border-[#262626] rounded-[5px] hover:bg-[#262626] hover:text-[#fff] duration-500'>Hide All</button>
                         
-                    <button onClick={handelFilShow} className='h-[50px] font-dm font-normal w-[100px] border-[1px] border-[#262626] rounded-[5px] hover:bg-[#262626] hover:text-[#fff] duration-500'>Show All</button>
+                        }
+                        
+                    
 
-                    <button onClick={handelFilHide} className='h-[50px] font-dm font-normal w-[100px] border-[1px] border-[#262626] rounded-[5px] hover:bg-[#262626] hover:text-[#fff] duration-500'>Hide All</button>
+                    
                     </div>
-
-
-{/* <button onClick={handelFilclear} className='h-[50px] font-dm font-normal w-[100px] border-[1px] border-[#262626] rounded-[5px] hover:bg-[#262626] hover:text-[#fff] duration-500'>Hide All</button>  */}
-
-
-
-                    
-
-                    
+                                       
                     
                 </div>
 
                 :
 
-                <div className=" flex justify-between flex-wrap mt-[40px]">
+                <div className={`${multi == "activeMulti" ? " " :"flex justify-between flex-wrap mt-[40px]" }`}>
                     {allPage.map((items, i) => (
-                        <  div key={i} className="lg:!w-[32%]">
+                        <  div key={i} className={`${multi == "activeMulti" ? "!w-[100%]" :"lg:!w-[32%]" }`}>
                             <Link to={`/shop/${items.id}`}>
                                 <div className="">
                                     <div className="relative group overflow-hidden">
@@ -107,7 +119,7 @@ const Postt = ({ allPage, categoryFilter }) => {
                                                     <h3 className='mr-[10px] text-[16px] text-[#767676] font-normal font-dm hover:text-[#262626] hover:font-bold duration-500 ease-in-out'>Compare</h3>
                                                     <TfiReload />
                                                 </div>
-                                                <div className="flex items-center justify-end mr-2 py-2">
+                                                <div onClick={()=>handelProductCart(items)} className="flex items-center justify-end mr-2 py-2">
                                                     <h3 className='mr-[10px] text-[16px] text-[#767676] font-normal font-dm hover:text-[#262626] hover:font-bold duration-500 ease-in-out'>Add to Cart</h3>
                                                     <FaShoppingCart />
                                                 </div>
