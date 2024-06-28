@@ -19,7 +19,7 @@ const Nav = () => {
                         <li className='lg:px-[40px] lg:py-0 py-2 text-[16px] text-[#262626] font-dm font-regular'><Link to="/shop">Shop</Link></li>
                         <li className='text-[16px] text-[#262626] font-dm font-regular' ><Link to="/about">About</Link></li>
                         <li className='lg:px-[40px] lg:py-0 py-2 text-[16px] text-[#262626] font-dm font-regular'><Link to="/contact">Contacts</Link></li>
-                        <li className='text-[16px] text-[#262626] font-dm font-regular'><Link to="/journal">Journal</Link></li>
+                        <li className='text-[16px] text-[#262626] font-dm font-regular'><Link to="/login">Login</Link></li>
                     </ul>
                 </div>
                 <div className=" lg:hidden relative " onClick={()=>{setShow(!show)}}>

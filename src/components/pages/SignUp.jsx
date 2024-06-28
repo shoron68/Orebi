@@ -1,8 +1,45 @@
 import React, { useState } from 'react'
 import Container from '../Container'
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SignUp = () => {
+    const auth = getAuth();
+    let [email,setEmail] =useState("")
+    let [password,setPassword] =useState("")
     const [yes, setYes] = useState("yes");
+    let notify = () => toast.success('Success', {
+        position: "bottom-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        });
+    
+
+
+
+  let handleSignUp = () =>{
+
+    createUserWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    console.log(userCredential);
+  })
+  .catch((error) => {
+    let errorCode =error.code
+    if (errorCode.includes("auth/email-already-in-use")){
+            console.log('email-already-in-use');
+    }else{
+        console.log("Please-Wait");
+    }
+  });
+
+  }
+    
     return (
         <Container>
             <div className="">
@@ -36,7 +73,7 @@ const SignUp = () => {
                             <div className="flex justify-between flex-wrap pt-[24px]">
                                 <div className="w-[49%] border-b-[1px] border-[#F0F0F0]">
                                     <h5 className='text-[16px] text-[#262626] font-dm font-bold'>Email address</h5>
-                                    <input className='py-[20px] text-[14px] text-[#767676] font-dm outline-none' type="email" placeholder='company@domain.com' />
+                                    <input  className='py-[20px] text-[14px] text-[#767676] font-dm outline-none' type="email" placeholder='company@domain.com' />
                                 </div>
                                 <div className="w-[49%]">
                                     <div className="border-b-[1px] border-[#F0F0F0]">
@@ -109,13 +146,13 @@ const SignUp = () => {
                         <div className=" ">
                             <div className="flex justify-between flex-wrap">
                                 <div className="w-[49%] border-b-[1px] border-[#F0F0F0]">
-                                    <h5 className='text-[16px] text-[#262626] font-dm font-bold'>Password</h5>
-                                    <input className='py-[20px] text-[14px] text-[#767676] font-dm outline-none' type="password" placeholder='Password' />
+                                    <h5 className='text-[16px] text-[#262626] font-dm font-bold'>Email</h5>
+                                    <input onChange={(e)=>setEmail(e.target.value)} className='py-[20px] text-[14px] text-[#767676] font-dm outline-none' type="email" placeholder='Password' />
                                 </div>
                                 <div className="w-[49%]">
                                     <div className="border-b-[1px] border-[#F0F0F0]">
-                                        <h5 className=' text-[16px] text-[#262626] font-dm font-bold'>Repeat Password</h5>
-                                        <input className=' py-[20px] text-[14px] text-[#767676] font-dm outline-none' type="password" placeholder='Repeat Password' />
+                                        <h5 className=' text-[16px] text-[#262626] font-dm font-bold'> Password</h5>
+                                        <input onChange={(e)=>setPassword(e.target.value)} className=' py-[20px] text-[14px] text-[#767676] font-dm outline-none' type="password" placeholder='Repeat Password' />
                                     </div>
                                 </div>
                             </div>
@@ -154,8 +191,18 @@ const SignUp = () => {
                         </div>
                     </div>
                     <div className="pt-[26px]">
-                        <div className="">
-                            <button className='text-[16px] text-[#262626] font-dm font-bold h-[50px] w-[200px] border-[1px] border-[#262626] hover:bg-[#262626] hover:text-[#fff] ease-in-out duration-300'>Log in</button>
+                        <div   onClick={notify} className="">
+                            <button onClick={handleSignUp}  className='text-[16px] text-[#262626] font-dm font-bold h-[50px] w-[200px] border-[1px] border-[#262626] hover:bg-[#262626] hover:text-[#fff] ease-in-out duration-300'>Log in</button>
+                            <ToastContainer position="bottom-center"
+                          autoClose={3000}
+                          hideProgressBar={false}
+                          newestOnTop={false}
+                          closeOnClick
+                          rtl={false}
+                          pauseOnFocusLoss
+                          draggable
+                          pauseOnHover
+                          theme="dark"/>
                         </div>
                     </div>
                 </div>

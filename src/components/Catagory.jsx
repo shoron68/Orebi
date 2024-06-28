@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Container from './Container'
 import { HiMiniBarsArrowDown } from "react-icons/hi2";
 import { IoIosSearch } from "react-icons/io";
@@ -6,12 +6,16 @@ import { FaUser, FaShoppingCart } from "react-icons/fa";
 import { useRef } from 'react';
 import { RxCross2 } from "react-icons/rx";
 import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { ApiData } from './ContextApi';
 
 
 
 
 const Catagory = () => {
     let dispatch = useDispatch()
+    let info = useContext(ApiData)
+    let navigate = useNavigate()
     let [catshow, setCatshow] = useState(false)
     let [cartshow, setCartshow] = useState(false)
     let [usershow, setUsertshow] = useState(false)
@@ -21,6 +25,8 @@ const Catagory = () => {
     let chartMenu = useRef()
     let catMenu = useRef()
     let data = useSelector((state) => state.prodcut.cartItem)
+    let [searchChange, setSearchChange] = useState("")
+    let [searchFilter, setSearchFIlter] = useState("")
 
 
 
@@ -55,6 +61,31 @@ const Catagory = () => {
 
         })
     }, [catshow, cartshow, usershow, itemshow])
+
+
+    let handleSarch = (e) => {
+        setSearchChange(e.target.value);
+        if (e.target.value == "") {
+            setSearchFIlter([])
+        } else {
+            let searchFind = info.filter((item) => item.title.toLowerCase().includes(e.target.value))
+            setSearchFIlter(searchFind)
+        }
+
+    }
+    
+    let handleSingleP =(id)=>{
+       navigate(`/shop/${id}`)
+       setSearchFIlter("")
+    }
+    let keyUp =(e)=>{
+
+        if(e.code == "Enter"){
+            navigate("/shop")
+        }else{
+
+        }
+    }
 
 
 
@@ -140,11 +171,44 @@ const Catagory = () => {
 
 
                     </div>
-                    <div className="relative lg:pb-0 pb-[10px] lg:ml-[0] ml-[-40px]">
 
-                        <input type="text" placeholder='Search Products' className='lg:ml-0 ml-[13px] lg:h-[50px] h-[40px] w-full lg:pl-[21px] pl-[5px] lg:pr-[473px] ' />
-                        <IoIosSearch className='absolute lg:top-[26%] top-[22%] lg:right-[25px] right-[5px] lg:text-[28px] text-[20px] text-[#262626]' />
+                    <div className="">
+                        <div className="relative lg:pb-0 pb-[10px] lg:ml-[0] ml-[-40px]">
+
+                            <input onKeyUp={keyUp} type="text" onChange={handleSarch} placeholder='Search Products' className='lg:ml-0 ml-[13px] lg:h-[50px] h-[40px] w-full lg:pl-[21px] pl-[5px] lg:pr-[473px] ' />
+                            <div className="">
+                            <IoIosSearch className='absolute lg:top-[26%] top-[22%] lg:right-[25px] right-[5px] lg:text-[28px] text-[20px] text-[#262626]' />
+                            </div>
+
+                        </div>
+                        {searchFilter.length > 0 &&
+                            <div className="absolute top-[170px] left-[50%] translate-x-[-50%] z-10 overflow-y-scroll" >
+                                {searchFilter.map((item, index) => (
+
+                                    <div onClick={()=>handleSingleP(index + 1)} className="flex bg-[#F5F5F3] py-[20px] px-[20px]">
+                                        <div className="flex items-center justify-between  w-[400px]">
+                                            <div className="h-[100px] w-[100px]  mr-[20px]">
+                                                <img src={item.thumbnail} alt="" />
+                                            </div>
+                                            <div className="">
+                                                <h4 className='text-[14px]  text-[#262626] font-dm font-bold'>{item.title}</h4>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+
+                            </div>
+                        }
+
+
                     </div>
+
+
+
+
+
+
                     <div >
                         <div className="flex items-center ">
                             <div className="relative" ref={userMenu}>
@@ -155,8 +219,8 @@ const Catagory = () => {
                                     <div className="absolute z-50 top-10 right-[0px]">
                                         <div className="text-center">
                                             <ul>
-                                                <li className='text-[#262626] bg-[#FFFFFF]  h-[50px] w-[150px] leading-[50px] hover:bg-[#262626] hover:text-[#fff] duration-500 '>My Account</li>
-                                                <li className='text-[#262626] bg-[#FFFFFF]  h-[50px] w-[150px] leading-[50px] hover:bg-[#262626] hover:text-[#fff] duration-500 '>Log Out</li>
+                                                <li className='text-[#262626] bg-[#FFFFFF]  h-[50px] w-[150px] leading-[50px] hover:bg-[#262626] hover:text-[#fff] duration-500 '><Link to="/myaccount">My Account</Link></li>
+                                                <li className='text-[#262626] bg-[#FFFFFF]  h-[50px] w-[150px] leading-[50px] hover:bg-[#262626] hover:text-[#fff] duration-500'>Log Out</li>
                                             </ul>
                                         </div>
                                     </div>
